@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="index, follow">
+<title>AI Chat — Privacy Policy</title>
+<meta name="description" content="Privacy policy for the AI Chat browser extension: what is stored on your device, what leaves it when you use an AI provider, speech, web search or market data, and how to delete everything.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  :root {
+    --bg: #faf9f5;
+    --surface: #ffffff;
+    --text: #1f1e1d;
+    --text-2: #3d3929;
+    --muted: #73726c;
+    --border: rgba(31, 30, 29, .16);
+    --border-soft: rgba(31, 30, 29, .09);
+    --accent: #c6613f;
+    --accent-soft: rgba(198, 97, 63, .10);
+    --ok: #1a7f4b;
+    --ok-soft: rgba(26, 127, 75, .10);
+    --code-bg: rgba(31, 30, 29, .055);
+    --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --serif: ui-serif, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, 'Times New Roman', serif;
+    --mono: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, 'Liberation Mono', monospace;
+    --wrap: 820px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #262624;
+      --surface: #30302e;
+      --text: #faf9f5;
+      --text-2: #e6e3d8;
+      --muted: #a3a29a;
+      --border: rgba(222, 220, 209, .20);
+      --border-soft: rgba(222, 220, 209, .10);
+      --accent: #d97757;
+      --accent-soft: rgba(217, 119, 87, .16);
+      --ok: #5fbf87;
+      --ok-soft: rgba(95, 191, 135, .14);
+      --code-bg: rgba(255, 255, 255, .075);
+    }
+  }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 var(--sans);
+  }
+
+  .wrap {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 44px 22px 90px;
+  }
+
+  /* ---------- header ---------- */
+  header.doc { padding-bottom: 20px; border-bottom: 1px solid var(--border-soft); }
+
+  .kicker {
+    margin: 0 0 10px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  h1 {
+    margin: 0 0 12px;
+    font: 500 36px/1.18 var(--serif);
+    letter-spacing: -.6px;
+  }
+
+  .lede {
+    margin: 0 0 14px;
+    font-size: 17px;
+    color: var(--text-2);
+    max-width: 68ch;
+  }
+
+  .meta {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+
+  /* ---------- summary ---------- */
+  .summary {
+    margin: 26px 0 8px;
+    padding: 18px 20px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+  }
+
+  .summary h2 {
+    margin: 0 0 10px;
+    font: 600 15px/1.3 var(--sans);
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .summary ul { margin: 0; padding-left: 20px; }
+  .summary li { margin: 7px 0; }
+
+  /* ---------- table of contents ---------- */
+  nav.toc {
+    margin: 26px 0 10px;
+    padding: 16px 20px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+  }
+
+  nav.toc h2 {
+    margin: 0 0 8px;
+    font: 600 13px/1.3 var(--sans);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  nav.toc ol {
+    margin: 0;
+    padding-left: 22px;
+    columns: 2;
+    column-gap: 32px;
+    font-size: 15px;
+  }
+
+  nav.toc li { margin: 4px 0; break-inside: avoid; }
+  nav.toc a { color: var(--text-2); text-decoration: none; border-bottom: 1px solid transparent; }
+  nav.toc a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  @media (max-width: 620px) {
+    nav.toc ol { columns: 1; }
+    h1 { font-size: 30px; }
+  }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 40px; }
+
+  h2 {
+    margin: 0 0 12px;
+    font: 500 25px/1.3 var(--serif);
+    letter-spacing: -.3px;
+    padding-top: 8px;
+  }
+
+  h3 {
+    margin: 26px 0 8px;
+    font: 600 16.5px/1.4 var(--sans);
+  }
+
+  h4 {
+    margin: 20px 0 6px;
+    font: 600 14.5px/1.4 var(--sans);
+    color: var(--text-2);
+  }
+
+  p { margin: 0 0 13px; max-width: 74ch; }
+  ul, ol { margin: 0 0 13px; padding-left: 24px; max-width: 74ch; }
+  li { margin: 6px 0; }
+  li > ul, li > ol { margin: 4px 0 4px; }
+
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  strong { font-weight: 600; }
+
+  code, .perm {
+    font-family: var(--mono);
+    font-size: .87em;
+    background: var(--code-bg);
+    border: .5px solid var(--border-soft);
+    border-radius: 6px;
+    padding: 1px 6px;
+    overflow-wrap: anywhere;
+  }
+
+  .callout {
+    margin: 18px 0;
+    padding: 14px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-left: 3px solid var(--ok);
+    border-radius: 10px;
+    font-size: 15px;
+  }
+
+  .callout p:last-child { margin-bottom: 0; }
+  .callout.big { border-left-color: var(--accent); }
+  .callout h4 { margin-top: 0; }
+
+  /* ---------- tables ---------- */
+  .tablewrap {
+    margin: 16px 0 20px;
+    overflow-x: auto;
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    background: var(--surface);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    line-height: 1.5;
+    min-width: 640px;
+  }
+
+  caption {
+    caption-side: top;
+    text-align: left;
+    padding: 12px 16px 0;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  th, td {
+    padding: 11px 14px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  thead th {
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--code-bg);
+    white-space: nowrap;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  td code { font-size: 12.5px; }
+
+  /* ---------- commitments ---------- */
+  .commit {
+    margin: 14px 0;
+    padding: 12px 16px;
+    background: var(--ok-soft);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    font-size: 15px;
+  }
+
+  .commit b { color: var(--ok); }
+
+  /* ---------- footer ---------- */
+  footer.site {
+    margin-top: 54px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-soft);
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 74ch;
+  }
+
+  footer.site p { margin: 0 0 8px; font-size: 13px; }
+
+  @media print {
+    body { background: #fff; color: #000; }
+    .wrap { max-width: none; padding: 0; }
+    nav.toc { display: none; }
+    section { page-break-inside: avoid; }
+    a { color: #000; }
+  }
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+  <header class="doc">
+    <p class="kicker">AI Chat · Chrome extension</p>
+    <h1>Privacy policy</h1>
+    <p class="lede">
+      AI Chat is a chat window for an AI provider <em>you</em> choose, using <em>your own</em> API key.
+      This page explains in plain language what the extension keeps on your device, what it sends to the
+      services you pick, and how to delete everything.
+    </p>
+    <!-- Set this to the date you publish, and update it whenever the policy changes. -->
+    <p class="meta">Last updated <time datetime="2026-10-01">1 October 2026</time> · Applies to AI Chat&nbsp;4.7 and later 4.x releases.</p>
+  </header>
+
+  <section class="summary" aria-labelledby="short-version">
+    <h2 id="short-version">The short version</h2>
+    <ul>
+      <li><strong>Your data stays in your browser.</strong> There is no server run by the developer of AI Chat. Your API keys, settings, chats and attached files are stored in your own browser profile and are never uploaded to the developer.</li>
+      <li><strong>No analytics, no tracking, no ads.</strong> The extension contains no analytics, no usage counters, no installation ID and no advertising.</li>
+      <li><strong>You choose who sees what.</strong> Messages and files go only to the AI provider you selected; speech goes only to the speech service you configured; searches go only to the search source in use. All of it runs straight from your browser with your own keys.</li>
+      <li><strong>Optional features are opt-in.</strong> Web search, market data and page reading run only when you use them, and the on-device speech engine can replace the cloud speech service completely, keeping your voice on your computer.</li>
+      <li><strong>You can delete everything.</strong> Delete a chat, clear the history, remove the keys, or uninstall the extension — the stored data goes with it.</li>
+    </ul>
+  </section>
+
+  <nav class="toc" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">Contents</h2>
+    <ol>
+      <li><a href="#scope">Scope of this policy</a></li>
+      <li><a href="#stored">What the extension stores on your device</a></li>
+      <li><a href="#leaves">What leaves your device, and to whom</a></li>
+      <li><a href="#never">What the extension never collects</a></li>
+      <li><a href="#permissions">Browser permissions and why they exist</a></li>
+      <li><a href="#choices">Your choices and controls</a></li>
+      <li><a href="#retention">How long data is kept, and how to delete it</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#children">Children</a></li>
+      <li><a href="#third-parties">Third-party services</a></li>
+      <li><a href="#changes">Changes to this policy</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <!-- ============================================================ 1 -->
+  <section id="scope">
+    <h2>1. Scope of this policy</h2>
+
+    <p>
+      This policy applies to the <strong>AI Chat</strong> browser extension (Chrome and other Chromium-based
+      browsers) and to the pages the extension itself opens: the chat window, the settings page, the voice test
+      page and this document. In this policy, <em>“the extension”</em> means AI Chat, <em>“the developer”</em>
+      means the publisher of AI Chat on the Chrome Web Store, and <em>“you”</em> means the person using it.
+    </p>
+
+    <p>
+      It does <strong>not</strong> cover the AI, speech, search or financial-data services the extension can
+      send data to. Those are separate companies, they are contacted only with the key you saved for them, and
+      they are governed by their own privacy policies and terms. Section 10 lists them.
+    </p>
+
+    <p>
+      The extension is a client. It does not operate a service of its own, does not create an account for you,
+      and does not act as a middleman between you and any provider.
+    </p>
+  </section>
+
+  <!-- ============================================================ 2 -->
+  <section id="stored">
+    <h2>2. What the extension stores on your device</h2>
+
+    <p>
+      Everything described in this section lives inside your browser profile, in the extension’s own storage.
+      None of it is synchronised to an account, and none of it is uploaded to the developer.
+    </p>
+
+    <h3>2.1 Settings</h3>
+    <ul>
+      <li>The provider and model you selected, the thinking level, maximum output tokens, temperature and any system prompt you wrote.</li>
+      <li>Behaviour choices such as the chat width, whether models are told how to name files, the web-search options, the market-data toggle, the speech engines, the voice library choices, your voice prompt, the assistant name and your own name.</li>
+    </ul>
+
+    <h3>2.2 API keys</h3>
+    <ul>
+      <li>Each key you type: your AI provider key, and, if you add them, speech keys (OpenAI-compatible, ElevenLabs, Microsoft Azure Speech, Google Cloud Text-to-Speech) and search keys (Brave, Tavily).</li>
+      <li>Keys are stored in the extension’s local storage in plain text, like any credential a browser stores for a site. They are not synced to any account and are not sent to the developer.</li>
+      <li>A key is sent only to the service it belongs to, as the authorisation header of your requests, because that service cannot accept a request without it.</li>
+    </ul>
+
+    <h3>2.3 Chats and recordings</h3>
+    <ul>
+      <li>Every conversation: the messages you send and the answers you receive, including the model’s “thinking” text, code blocks, file names and any charts or diagrams data the answer contained.</li>
+      <li>If <em>“Keep the audio of voice conversations”</em> is on (it is on by default), the recordings of your spoken turns and the spoken replies are kept inside the chat so you can replay them later. You can switch this off in settings.</li>
+      <li>Chat history is stored in the extension’s local storage area (<code>chrome.storage.local</code>).</li>
+    </ul>
+
+    <h3>2.4 Attachments and files</h3>
+    <ul>
+      <li>Zip archives and pictures you attach are kept as binary data in the browser’s IndexedDB database (<code>aichat-blobs</code>).</li>
+      <li>They are kept so that a later reply can rebuild an <em>“updated project”</em> zip from your original archive, and so a picture can be sent to a vision model again without you uploading it twice.</li>
+      <li>This is also why the extension asks for <span class="perm">unlimitedStorage</span>: a long history with attachments can exceed the browser’s default per-extension quota, and new chats would then fail to save.</li>
+      <li>Files you download from a reply (single files, project zips, chart PNGs, diagram SVGs) are saved by your browser in the normal way, wherever your browser saves downloads.</li>
+    </ul>
+
+    <h3>2.5 Exports</h3>
+    <p>
+      <em>“Export all chats”</em> writes a JSON file containing your chat text to a place you choose. Attachments,
+      zip archives and recordings are not included. That file is yours, and it lives outside the extension from
+      then on.
+    </p>
+
+    <h3>2.6 Optional on-device models</h3>
+    <p>
+      If you download the optional on-device speech-recognition or offline-voice models, the browser keeps the
+      downloaded model files in its cache so they are not fetched again. Depending on the model you choose, this
+      is roughly 75&nbsp;MB to 900&nbsp;MB. Nothing is downloaded unless you press the download button.
+    </p>
+  </section>
+
+  <!-- ============================================================ 3 -->
+  <section id="leaves">
+    <h2>3. What leaves your device, and to whom</h2>
+
+    <p>
+      The extension talks directly to the services you configure, from your browser, with the keys you saved.
+      The developer does not run a proxy for these requests, does not receive copies of them, and cannot see
+      them. Several categories of data leave your device only if you use the corresponding feature: the
+      <em>Web</em> button, the <em>“When to search”</em> setting, the market-data toggle, the speech engine
+      setting and the voice source setting all decide whether that traffic happens at all.
+    </p>
+
+    <div class="tablewrap">
+      <table>
+        <caption>Outbound data at a glance. “Your control” lists the setting or switch that decides whether this happens.</caption>
+        <thead>
+          <tr>
+            <th scope="col">When you…</th>
+            <th scope="col">What is sent</th>
+            <th scope="col">Who receives it</th>
+            <th scope="col">Your control</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Send a message, with or without attachments</td>
+            <td>Your message text, the extracted text of any attached file, attached pictures (only to models that can see pictures), and the recent conversation for context</td>
+            <td>The AI provider you selected: DeepSeek, OpenAI, Anthropic, Google (Gemini), OpenRouter, or a server you host yourself</td>
+            <td>Provider and model picker; a local server keeps everything on your machine</td>
+          </tr>
+          <tr>
+            <td>Dictate into the message box, or talk during a voice conversation</td>
+            <td>The audio recording</td>
+            <td>The speech-to-text service you configured (OpenAI-compatible by default; Groq and others work) — or <strong>nobody</strong>, if you use the on-device Whisper engine</td>
+            <td>“Speech input” setting in the extension options</td>
+          </tr>
+          <tr>
+            <td>Hear a reply read aloud, or hear a voice conversation reply</td>
+            <td>The text being spoken, sentence by sentence</td>
+            <td>The text-to-speech service you configured (OpenAI, ElevenLabs, Microsoft Azure, Google Cloud) — or <strong>nobody</strong>, with browser voices or the offline voice</td>
+            <td>“Voice source” in the Voice library</td>
+          </tr>
+          <tr>
+            <td>Use web search (Web&nbsp;=&nbsp;Auto or On, or type <code>/search</code>)</td>
+            <td>Your question, as a search query</td>
+            <td>DuckDuckGo, Bing or Wikipedia (no key needed), or Brave/Tavily if you added a key</td>
+            <td>Web&nbsp;=&nbsp;Off, or “When to search: Never”</td>
+          </tr>
+          <tr>
+            <td>Let the extension read the top result pages (optional)</td>
+            <td>A request to those websites; their page text is then passed to your AI provider together with the results</td>
+            <td>The result pages themselves, and then your AI provider</td>
+            <td>Leave the “Read the top result pages” box unticked, or decline the browser permission</td>
+          </tr>
+          <tr>
+            <td>Ask about a stock, index, commodity or currency</td>
+            <td>The stock symbol, or the company name used to look the symbol up</td>
+            <td>Yahoo Finance</td>
+            <td>Market-data toggle in settings</td>
+          </tr>
+          <tr>
+            <td>Ask for pictures (image search)</td>
+            <td>The search phrase</td>
+            <td>Bing Images, with Wikimedia Commons as a fallback</td>
+            <td>Do not ask for pictures, or keep Web off</td>
+          </tr>
+          <tr>
+            <td>Create a picture with <code>/image</code> or an image model</td>
+            <td>Your prompt</td>
+            <td>The image API you configured</td>
+            <td>Only run it when you want it</td>
+          </tr>
+          <tr>
+            <td>Download the optional on-device models</td>
+            <td>A request for the model files — no audio, text or key is sent</td>
+            <td>Hugging Face</td>
+            <td>Nothing is fetched unless you press Download</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>3.1 AI providers (chat)</h3>
+    <p>
+      A message, and everything attached to it, is sent to the provider you chose in the model picker, together
+      with the recent part of the conversation and any instructions the app adds, such as the exact-math values
+      it computed from your question. That provider processes the request under its own policy and terms.
+    </p>
+    <p>
+      Attached pictures are sent as pictures only to providers that can see them (ChatGPT, Claude, Gemini,
+      OpenRouter). For providers that cannot see pictures, the extension reads text from the image on your device
+      using local OCR and sends only that text, with a note that the model cannot see the picture itself.
+    </p>
+
+    <h3>3.2 Speech input</h3>
+    <ul>
+      <li><strong>Speech API (default).</strong> Your recording is uploaded to the speech endpoint you configured — OpenAI by default, any OpenAI-compatible server otherwise, and Groq is explicitly supported — using your key. The endpoint returns the transcription.</li>
+      <li><strong>On-device Whisper.</strong> No audio leaves the device. The recording is decoded and transcribed inside the browser by a local model. This is the private option.</li>
+      <li><strong>Browser recognition.</strong> If you choose the browser recogniser, the browser’s own speech service may process the audio under the browser vendor’s terms.</li>
+    </ul>
+
+    <h3>3.3 Speech output</h3>
+    <p>
+      When a reply is spoken, its sentences are sent to the voice service you chose (OpenAI, ElevenLabs,
+      Microsoft Azure Speech or Google Cloud Text-to-Speech) and the audio comes back for playback. Browser
+      voices and the on-device voice synthesise locally, so with those the reply text does not leave your
+      device either.
+    </p>
+
+    <h3>3.4 Web search and page reading</h3>
+    <p>
+      When a search runs, your question — not the whole conversation — becomes a search query and is sent to the
+      active source. If you have turned on page reading <em>and</em> granted the optional permission, the top
+      result pages are fetched, reduced to text, and passed to your AI provider so it can answer from current
+      facts. Scripts on those pages are not executed; the page is only read as text.
+    </p>
+
+    <h3>3.5 Market data</h3>
+    <p>
+      Stock and market questions send a symbol (for example <code>^NSEI</code> or <code>RELIANCE.NS</code>) or a
+      company name to Yahoo Finance. The figures come back as a card in the chat and are shown with a note that
+      the data can be delayed and is for learning, not investment advice.
+    </p>
+
+    <h3>3.6 Picture search and image generation</h3>
+    <p>
+      Picture search sends your phrase to Bing Images and, if that returns nothing, to Wikimedia Commons. If your
+      model can see pictures, the first few thumbnails are downloaded and handed to the model so it can describe
+      what they really show; if it cannot, only the titles are used. Image generation sends your prompt to the
+      image API you configured.
+    </p>
+
+    <h3>3.7 Your own server</h3>
+    <p>
+      If you set a custom base URL — for example Ollama or LM Studio on your own computer, or another host — all
+      chat requests go there instead of to a big provider, and the browser asks you to approve that host once.
+      With a local server, your messages never leave your machine or your network.
+    </p>
+
+    <h3>3.8 What the developer receives</h3>
+    <p>
+      Nothing. There is no developer-run server in this extension, no account, no telemetry, and no update check
+      of its own: updates are handled by the Chrome Web Store like any other extension.
+    </p>
+  </section>
+
+  <!-- ============================================================ 4 -->
+  <section id="never">
+    <h2>4. What the extension never collects</h2>
+
+    <ul>
+      <li>No analytics, no crash reporting, no usage counters, no experiment assignment, no installation ID, no fingerprinting.</li>
+      <li>No browsing history, and no reading of the pages you visit: the extension declares no content scripts and does not run inside, modify or observe any website. It reads a web page only when you explicitly ask for a web lookup (section 3.4).</li>
+      <li>No location, contacts, calendar, clipboard contents or files beyond the ones you choose to attach.</li>
+      <li>No advertising, no profiling, and no automated decisions about you.</li>
+      <li>No selling or sharing of your data with third parties by the developer, because the developer never receives it.</li>
+    </ul>
+
+    <h3>Chrome Web Store data-use commitments</h3>
+
+    <div class="commit">
+      <b>I do not sell or transfer user data to third parties</b>, outside of the approved use cases.
+      The only transfers are the ones you initiate yourself, to the provider you selected.
+    </div>
+    <div class="commit">
+      <b>I do not use or transfer user data for purposes unrelated to the extension’s single purpose.</b>
+      Its single purpose is to be a chat client for the AI provider you choose with your own key; every transfer
+      described above exists only to make that conversation, its speech, or a lookup you asked for, work.
+    </div>
+    <div class="commit">
+      <b>I do not use or transfer user data to determine creditworthiness or for lending purposes.</b>
+    </div>
+
+    <p>
+      AI Chat accesses each service only with your own credential and only to perform the action you requested.
+      For the Google services the extension can use (Gemini chat and Google Cloud Text-to-Speech), it stores no
+      Google account data of its own; the request carries your API key and nothing else.
+    </p>
+  </section>
+
+  <!-- ============================================================ 5 -->
+  <section id="permissions">
+    <h2>5. Browser permissions and why they exist</h2>
+
+    <h3>Extension permissions</h3>
+    <ul>
+      <li><span class="perm">storage</span> — keeps your settings, API keys and chat history, as described in section 2.</li>
+      <li><span class="perm">unlimitedStorage</span> — keeps attached zip archives, pictures and (optionally) recordings past the browser’s default per-extension quota, so a long history continues to save correctly. It grants no access to anything else on your computer.</li>
+      <li><span class="perm">clipboardWrite</span> — lets the Copy buttons place a code block, message, read-aloud text or a diagnostic log on the clipboard when you press them. It is never used to read the clipboard.</li>
+    </ul>
+
+    <h3>Host permissions</h3>
+    <p>
+      These are the exact addresses the extension may contact, and each one is used only for the feature named
+      in section 3: the AI providers you can choose, the speech services, the search sources and Wikipedia, Yahoo
+      Finance for market data, Wikimedia and Bing thumbnails for picture results, and Hugging Face for the
+      optional on-device models.
+    </p>
+
+    <h3>Optional host permissions</h3>
+    <ul>
+      <li><span class="perm">https://*/*</span> — requested with a browser prompt only when you let the extension read web pages for a search.</li>
+      <li><span class="perm">http://localhost/*</span> and <span class="perm">http://127.0.0.1/*</span> — requested only when you point the extension at a server on your own machine.</li>
+    </ul>
+    <p>
+      Optional permissions are granted by you, per host, and can be withdrawn at any time from the extension’s
+      page in the browser’s extension manager.
+    </p>
+
+    <h3>Microphone and camera</h3>
+    <p>
+      These are not extension permissions; the browser asks for them on the extension’s own pages the first time
+      you dictate, start a voice conversation, or take a photo. The microphone is used only while you are
+      dictating or in a voice call, and its audio is handled exactly as described in section 3.2. The camera is
+      used only when you press the camera button, and the photo is attached to your message like any other
+      picture you send.
+    </p>
+  </section>
+
+  <!-- ============================================================ 6 -->
+  <section id="choices">
+    <h2>6. Your choices and controls</h2>
+
+    <ul>
+      <li><strong>Search:</strong> set <em>Web</em> to Off, or “When to search” to Never. Typing <code>/search</code> is then the only thing that triggers a lookup.</li>
+      <li><strong>Market data:</strong> switch the market-data toggle off if you never want stock symbols sent anywhere.</li>
+      <li><strong>Page reading:</strong> keep “Read the top result pages” off, or do not grant the optional permission. Answers still use the search results, just not the full pages.</li>
+      <li><strong>Speech:</strong> choose On-device Whisper for input and Browser or On-device for output, and your voice and reply text stay on your computer. Turn off “Read every reply aloud” if you do not want spoken answers at all.</li>
+      <li><strong>Recordings on disk:</strong> turn off “Keep the audio of voice conversations” so spoken turns are not written into the chat history.</li>
+      <li><strong>Wake name:</strong> “Only answer when I say the name” makes the assistant ignore everything until it is addressed. Note that with an API speech engine the recording still has to be sent to be transcribed — it is the answer, not the upload, that is suppressed. With on-device Whisper, nothing is uploaded either way.</li>
+      <li><strong>Local server:</strong> set the base URL to Ollama, LM Studio or another server you control, and your messages stay on your machine or network.</li>
+      <li><strong>History:</strong> delete individual chats, or clear all chats from the settings page.</li>
+      <li><strong>Keys:</strong> replace or remove any key at any time, and revoke it at the provider if you want it dead everywhere.</li>
+      <li><strong>Everything at once:</strong> removing the extension from the browser deletes its stored chats, keys, attachments and recordings.</li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ 7 -->
+  <section id="retention">
+    <h2>7. How long data is kept, and how to delete it</h2>
+
+    <p>
+      Everything in section 2 is kept on your device until you delete it. There is no expiry timer and no
+      server-side copy, because there is no server.
+    </p>
+
+    <ul>
+      <li><strong>Deleting a chat</strong> removes that conversation from the stored history.</li>
+      <li><strong>“Clear all chats”</strong> removes the whole chat history.</li>
+      <li><strong>Attachments kept for later use.</strong> Uploaded zip archives, pictures and saved recordings are held in a separate browser store so that project zips can be rebuilt and audio can be replayed. They can outlive the chat you deleted them from, until you clear the extension’s data.</li>
+      <li><strong>Removing the extension</strong> — or clearing the browser’s stored data for extensions — deletes the extension’s storage area and its databases in one go. That is the surest way to remove every attachment and recording.</li>
+      <li><strong>Copies you made yourself</strong> (exported JSON files, downloaded files from replies, downloaded model files) live outside the extension and are deleted by you, wherever you saved them.</li>
+      <li><strong>What the providers keep</strong> is decided by those providers under their own policies. The extension cannot delete anything from their systems. If retention matters to you, use a server you host yourself, or pick providers whose policies you accept.</li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ 8 -->
+  <section id="security">
+    <h2>8. Security</h2>
+
+    <ul>
+      <li>All requests go over HTTPS. The only exception is a server you explicitly point the extension at on your own machine (<code>http://localhost</code> or <code>http://127.0.0.1</code>).</li>
+      <li>API keys are stored in your browser profile. Anyone who can use that profile or that device can read them, so treat them as secrets: set spending limits at the provider, and revoke a key if you are unsure.</li>
+      <li>The extension does not add its own encryption or password layer on top of browser storage, and it makes no claim of end-to-end encryption.</li>
+      <li>Providers and search services may log requests made with your key, under their own policies and retention rules.</li>
+      <li>Updates come through the Chrome Web Store’s normal extension update channel.</li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ 9 -->
+  <section id="children">
+    <h2>9. Children</h2>
+    <p>
+      AI Chat is not directed at children under 13, or under the minimum age required in your country. It is a
+      tool for people who hold their own API credentials. The developer collects no data from anyone, children
+      included, because the extension does not send anything to the developer at all.
+    </p>
+  </section>
+
+  <!-- ============================================================ 10 -->
+  <section id="third-parties">
+    <h2>10. Third-party services</h2>
+
+    <p>
+      The services below are contacted only when you use the matching feature, and only with your own key where
+      one is needed. Each is an independent company governed by its own privacy policy and terms; the links in
+      your browser history and in each provider’s own documentation are the authoritative versions.
+    </p>
+
+    <ul>
+      <li><strong>AI providers:</strong> DeepSeek, OpenAI (ChatGPT), Anthropic (Claude), Google (Gemini), OpenRouter — or any OpenAI-compatible server you run yourself.</li>
+      <li><strong>Speech:</strong> OpenAI, ElevenLabs, Microsoft Azure Speech, Google Cloud Text-to-Speech — or your browser’s own voices.</li>
+      <li><strong>Search:</strong> DuckDuckGo, Microsoft Bing, Wikimedia (Wikipedia), Brave Search and Tavily when you supply a key for them.</li>
+      <li><strong>Market data:</strong> Yahoo Finance (unofficial feed, can be delayed).</li>
+      <li><strong>Pictures:</strong> Microsoft Bing Images and Wikimedia Commons.</li>
+      <li><strong>On-device models:</strong> Hugging Face.</li>
+      <li><strong>Distribution:</strong> the Google Chrome Web Store, which processes the installation and updates.</li>
+    </ul>
+
+    <p>
+      AI Chat is an independent client. It is not affiliated with, endorsed by, or sponsored by any of the
+      services listed above. Product names and brands belong to their owners and are used for identification
+      only. Your use of each service is also subject to that service’s terms — for example, the Google services
+      are used through your own API key and only to fulfil the request you made.
+    </p>
+  </section>
+
+  <!-- ============================================================ 11 -->
+  <section id="changes">
+    <h2>11. Changes to this policy</h2>
+
+    <p>
+      If this policy changes, the date at the top of the page changes with it, and this page always shows the
+      current version. A new release that adds a new service or a new host permission will be reflected here
+      before or at the same time as it appears in the store listing, since the listing shows the current
+      permissions of the published version. Continuing to use the extension after a change means you accept the
+      updated policy.
+    </p>
+  </section>
+
+  <!-- ============================================================ 12 -->
+  <section id="contact">
+    <h2>12. Contact</h2>
+
+    <p>
+      Questions about this policy, or a request about your data: use the <strong>Feedback</strong> button in the
+      extension (bottom of the settings page), or the support or developer contact shown on the AI Chat page in
+      the Chrome Web Store.
+    </p>
+    <!-- Optional: add a direct address here, for example
+    <p>Email: <a href="mailto:privacy@your-domain.example">privacy@your-domain.example</a></p>
+    -->
+  </section>
+
+  <footer class="site">
+    <p>AI Chat is an independent chat client for AI providers chosen by the user. Product names and brands mentioned on this page belong to their respective owners and are used for identification only.</p>
+    <p>This page is a static document. It sets no cookies, runs no scripts, and loads no fonts, images or files from anywhere else.</p>
+  </footer>
+
+</main>
+</body>
+</html>
